@@ -35,11 +35,9 @@ public class Urna {
 
     public boolean estaVacia() { //Metodo que comprueba si la urna esta vacia.
         boolean vacia = true;
-        for (Bola bola : bolas) {
-            if (bola != null) {
+        for (int i = 0; i < bolas.length && vacia; i++) {
+            if (bolas[i]!= null)
                 vacia = false;
-                break;
-            }
         }
         return vacia;
     }
@@ -71,10 +69,10 @@ public class Urna {
         if (estaVacia())
             bolas[0] = bola;
         else {
-            for (int i = 1; i < bolas.length; i++) {
+            for (int i = 0; i < bolas.length; i++) {
                 if (bolas[i] == null) {
                     bolas[i] = bola;
-                    break;
+                    i = bolas.length;
                 }
             }
         }
